@@ -8,7 +8,7 @@ Check out a demo [here](https://matsuuu.github.io/twitch-chat/)
 
 ## Installation
 
-### npm
+### NPM
 
 ```bash
 npm install twitch-chat-embed
@@ -17,16 +17,24 @@ npm install twitch-chat-embed
 ### CDN
 
 ```html
-<script type="module" src="TBA"></script>
+<script type="module" src="https://unpkg.com/twitch-chat-embed"></script>
 ```
 
 ## Usage
 
-```html
+### NPM
+
+```javascript
+import "twitch-chat-embed";
+
 <twitch-chat></twitch-chat>
 ```
 
+### CDN
+
 ```html
+<script type="module" src="https://unpkg.com/twitch-chat-embed"></script>
+
 <twitch-chat channel="ESL_SC2"></twitch-chat>
 ```
 
