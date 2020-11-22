@@ -1,0 +1,30 @@
+{
+    "name": "twitch-stream-embed",
+    "version": "1.0.0",
+    "description": "A Web Component for easily embedding a Twitch.tv live chat to any website",
+    "main": "src/twitch-chat.js",
+    "files": ["src/twitch-chat.js"],
+    "scripts": {
+        "start": "wds --node-resolve --watch --open"
+    },
+    "keywords": ["Twitch", "Livestream", "Vanilla", "WebComponents", "Javascript", "Buildless", "Chat"],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Matsuuu/twitch-chat.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Matsuuu/twitch-chat/issues"
+    },
+    "homepage": "https://github.com/Matsuuu/twitch-chat#readme",
+    "author": "Matsuuu <huhta.matias@gmail.com> (https://matsu.fi)",
+    "license": "ISC",
+    "devDependencies": {
+        "@simplr-wc/eslint-config": "^1.0.4",
+        "@simplr-wc/prettier-config": "^1.0.3",
+        "@web/dev-server": "^0.0.22"
+    },
+    "prettier": "@simplr-wc/prettier-config",
+    "eslintConfig": {
+        "extends": ["@simplr-wc/eslint-config"]
+    }
+}

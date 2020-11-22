@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Twitch Chat Web Component</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+
+        <style>
+            html,
+            body {
+                font-family: 'Roboto', sans-serif;
+                padding: 0;
+                margin: 0;
+                --dark-color: #151517;
+                --light-dark-color: #18181b;
+                --text-color: #efeff1;
+
+                background: var(--dark-color);
+                color: var(--text-color);
+                font-size: 1.2rem;
+            }
+
+            body {
+                margin-bottom: 5rem;
+            }
+
+            .chat-container {
+                width: 80%;
+                margin: 5% auto 0;
+                color: inherit;
+            }
+
+            input {
+                color: inherit;
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                font-size: 1.2rem;
+                width: 100%;
+                margin-top: 3rem;
+                background: var(--light-dark-color);
+                padding: 1rem;
+            }
+
+            .disclaimer {
+                font-size: 1rem;
+                margin-top: 0.25rem;
+                color: #a970ff;
+            }
+
+            table {
+                background: var(--light-dark-color);
+                padding: 1rem 0;
+                width: 100%;
+                text-align: left;
+            }
+            thead th {
+                padding: 1rem;
+            }
+            tbody td {
+                padding: 1rem;
+            }
+
+            tr {
+                transition: 200ms ease-in-out;
+            }
+
+            tr:hover {
+                background: #26262c;
+            }
+
+            img {
+                width: 100%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="chat-container">
+            <img src="twitch-chat.png" />
+            <h2>A Twitch Chat Web Component</h2>
+            <div id="chat-area">
+                <twitch-chat channel="ESL_SC2"></twitch-chat>
+            </div>
+
+            <input type="text" />
+            <p class="disclaimer">Blur focus from input field to apply modification</p>
+            <h3>Attributes</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Channel</td>
+                        <td>String</td>
+                        <td>Any channel name on Twitch.tv</td>
+                    </tr>
+                    <tr>
+                        <td>Width</td>
+                        <td>String/Number</td>
+                        <td>Percentage or a Number</td>
+                    </tr>
+                    <tr>
+                        <td>Height</td>
+                        <td>String/Number</td>
+                        <td>Percentage or a Number</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script src="src/twitch-chat.js" type="module"></script>
+
+        <script>
+            const codeBlock = document.querySelector('input[type="text"]');
+            const chatComponent = document.querySelector('twitch-chat');
+            const chatArea = document.querySelector('#chat-area');
+
+            function escapeHTML(htmlContent) {
+                return htmlContent.replace(/=""/g, '');
+            }
+
+            function updateCodeblock() {
+                const escaped = escapeHTML(chatComponent.outerHTML);
+                codeBlock.value = escaped;
+            }
+
+            codeBlock.addEventListener('blur', () => {
+                chatArea.innerHTML = codeBlock.value;
+            });
+            updateCodeblock();
+        </script>
+    </body>
+</html>
